@@ -1,18 +1,29 @@
 public class Zoo {
-
-    Animal[] animals;
-    String name, city;
-    private static final int MAX_CAGES=25;
-
-    int nbrAnimals;
+    private Animal[] animals;
+    private String name;
+    private String city;
+    private static final int MAX_CAGES = 25;
+    private int nbrAnimals;
 
     public Zoo() {
     }
 
     public Zoo(String name, String city) {
         animals = new Animal[MAX_CAGES];
-        this.name = name;
+        setName(name); // Utilisez le setter pour le nom pour appliquer la vérification.
         this.city = city;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        if (name != null && !name.isEmpty()) {
+            this.name = name;
+        } else {
+            System.out.println("Le nom du zoo ne peut pas être vide.");
+        }
     }
 
     void displayZoo() {
@@ -20,10 +31,19 @@ public class Zoo {
     }
 
     boolean addAnimal(Animal animal) {
-        if (searchAnimal(animal) != -1)
+        if (isZooFull()) {
+            System.out.println("Le zoo est plein. Impossible d'ajouter un nouvel animal.");
             return false;
+        }
+
+        if (searchAnimal(animal) != -1) {
+            System.out.println("L'animal est déjà dans le zoo.");
+            return false;
+        }
+
         animals[nbrAnimals] = animal;
         nbrAnimals++;
+        System.out.println("L'animal a été ajouté au zoo.");
         return true;
     }
 
