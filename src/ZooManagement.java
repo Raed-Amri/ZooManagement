@@ -23,7 +23,7 @@ public class ZooManagement {
         Animal dog2 = new Animal("Canine", "lll", 2, true);
         System.out.println(myZoo.searchAnimal(dog2));
 
-        //   System.out.println(myZoo.removeAnimal(dog));
+//           System.out.println(myZoo.removeAnimal(dog));
         myZoo.displayAnimals();
 
 
@@ -33,16 +33,29 @@ public class ZooManagement {
         myZoo.addAnimal(dog);
         myZoo.addAnimal(dog2);
         myZoo.displayAnimals();
-        System.out.println("a" + myZoo.removeAnimal(lion));
-        myZoo.displayAnimals();
-        System.out.println("a" + myZoo.removeAnimal(dog2));
-        myZoo.displayAnimals();
-        System.out.println("a" + myZoo.removeAnimal(dog));
-        myZoo.displayAnimals();
 
-//        System.out.println(Zoo.comparerZoo(myZoo, notMyZoo));
-//        System.out.println(myZoo.isZooFull());
 
+        myZoo.setName("Belvedere Park");
+        Zoo notMyZoo1 = Zoo.comparerZoo(myZoo, notMyZoo);
+        System.out.println(notMyZoo1);
+
+        System.out.println("-------------------------------------------------------");
+        Aquatic aquatic = new Aquatic("Fish", "Sardine", 2, true, "Sea");
+        Terrestrial terrestrial = new Terrestrial("Panda", "Narla", 4, true, 2);
+        Dolphin dolphin = new Dolphin("Delphinidae", "Flipper", 5, true, "Ocean", 14.5f);
+        Penguin penguin = new Penguin("Spheniscidae", "Skipper", 3, true, "Ocean", 25.3f);
+
+
+        System.out.println(aquatic);
+        System.out.println(terrestrial);
+        System.out.println(dolphin);
+        System.out.println(penguin);
+
+
+
+        aquatic.swim();
+        dolphin.swim();
+        penguin.swim();
 
     }
 
