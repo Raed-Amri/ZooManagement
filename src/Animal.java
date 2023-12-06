@@ -1,4 +1,3 @@
-
 public sealed class Animal permits Aquatic, Terrestrial {
 
     private String family, name;
